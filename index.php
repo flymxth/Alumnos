@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if($_POST) {
+        $mensaje = 'Usuario o contraseña';
+        if($_POST['usuario'] == 'admin' && $_POST['password'] == '1234'){
+            $_SESSION['usuario'] = $_POST['usuario'];
+            header('Location: SECCIONES/index.php');
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,20 +20,37 @@
 <body>
     <div class="container">
         <div class="row">
-            <form action="" method="post">
-                <div class="card">
-                    <div class="card-header">
-                        Inicio de sesión
+            <div class="col-md-4">
+                <br>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            Inicio de sesión
+                        </div>
+                        <div class="card-body">
+                            <?php
+                                if(isset($mensaje)){?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong><?php echo $mensaje ?></strong>
+                                    </div>
+                            <?php } ?>
+                            <div class="m-3">
+                                <label for="" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" name="usuario" id="usuario" aria-describedby="helpId" placeholder="usuario">
+                                <small id="helpId" class="form-text text-muded">Escriba su usuario</small>
+                            </div>
+                            <div class="m-3">
+                                <label for="" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="password" id="contrasenia" aria-describedby="helpId" placeholder="password">
+                                <small id="helpId" class="form-text text-muted">Escriba su contraseña</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <label for="">Usuario</label>
-                        <input type="text">
-                        <label for="">Contraseña</label>
-                        <input type="passwoord">
-                        <button>Iniciar sesión</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 <!-- Librerias de Bootstrap JavaScript -->
