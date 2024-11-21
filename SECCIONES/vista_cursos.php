@@ -34,12 +34,14 @@
                     <th>Nombre</th>
                     <th>Acciones</th>
                 </tr>
-        </tbody>
+            </tbody>
+            <?php foreach($listaCursos as $curso){  ?>
         <tr>
-            <td>1</td>
-            <td>Sitio Web con PHP</td>
+            <td> <?php echo $curso['id']; ?></td>
+            <td> <?php echo $curso['nombre']; ?></td>
             <td>Seleccionar</td>
         </tr>
+        <?php } ?>
         </thead>
     </table>
 </div>
