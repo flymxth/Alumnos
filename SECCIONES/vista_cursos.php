@@ -10,7 +10,7 @@
             <div class="card-body">
             <div class="mb-3">
                 <label for="" class="form-label">ID</label>
-                <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="ID">
+                <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="ID" value="<?php echo $nombre_curso; ?>">
             </div>
             <div class="mb-3">
                 <label for="nombre_curso" class="form-label">Nombre</label>
@@ -38,8 +38,13 @@
             <?php foreach($listaCursos as $curso){  ?>
         <tr>
             <td> <?php echo $curso['id']; ?></td>
-            <td> <?php echo $curso['nombre']; ?></td>
-            <td>Seleccionar</td>
+            <td> <?php echo $curso['nombre_curso']; ?></td>
+            <td>
+                <form action="" method="post">
+                    <input type="text" name="id" id="id" value="<?php echo $curso['id']; ?>">
+                    <input type="submit" name="accion" value="Seleccionar" class="btn btn-info">
+                </form>
+            </td>
         </tr>
         <?php } ?>
         </thead>
